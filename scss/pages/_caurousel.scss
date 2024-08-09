@@ -29,12 +29,8 @@ $color1: #f3f3f3;
             font-weight: 800;
             line-height: 1;
             color: #faec07;
-            @media screen and (max-width: 992px) {
-              font-size: 130px;
-            }
-            @media screen and (max-width: 576px) {
-              font-size: 80px;
-            }
+           
+           
           }
 
           .slide-subtitle {

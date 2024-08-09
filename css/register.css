@@ -263,7 +263,7 @@ footer .footer_bot .footer_bot_content .copyright i {
 }
 .register #register_form {
   margin: 0 auto;
-  max-width: 600px;
+  width: 75vw;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   padding: 23px 30px 30px;
 }
@@ -292,12 +292,20 @@ footer .footer_bot .footer_bot_content .copyright i {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
+@media screen and (max-width: 576px) {
+  .register #register_form .register_password {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .register #register_form .register_password .btn-eye {
   cursor: pointer;
+  position: relative;
 }
 .register #register_form .register_password .btn-eye i {
-  transform: translate(240px, -33px);
   color: black;
+  position: absolute;
+  top: 2px;
+  left: -30px;
 }
 .register #register_form .register_gender legend {
   font-size: 20px;

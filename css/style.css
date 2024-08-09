@@ -114,16 +114,6 @@ header .navbar .badge {
   line-height: 1;
   color: #faec07;
 }
-@media screen and (max-width: 992px) {
-  .carousel-head .carousel .carousel-inner .carousel-item .carousel-caption .slide-title {
-    font-size: 130px;
-  }
-}
-@media screen and (max-width: 576px) {
-  .carousel-head .carousel .carousel-inner .carousel-item .carousel-caption .slide-title {
-    font-size: 80px;
-  }
-}
 .carousel-head .carousel .carousel-inner .carousel-item .carousel-caption .slide-subtitle {
   font-size: 60px;
   font-weight: 500;
@@ -255,35 +245,37 @@ header .navbar .badge {
 }
 .banner .banner-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
 }
+.banner .banner-grid .banner-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
 @media screen and (max-width: 768px) {
-  .banner .banner-grid {
-    display: inline-block;
-  }
-  .banner .banner-grid .banner-item-position {
-    transform: translateY(0px) !important;
-  }
-  .banner .banner-grid .banner-item {
-    margin: 15px 80px;
-    align-items: center;
+  .banner .banner-grid .banner-top {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
   }
 }
-.banner .banner-grid .banner-item .single-category-item {
+.banner .banner-grid .banner-top .banner-item-row {
+  align-items: center;
+}
+.banner .banner-grid .banner-top .banner-item-row .single-category-item {
   position: relative;
   padding: 60px 20px 35px 20px;
-  width: 100%;
 }
-.banner .banner-grid .banner-item .single-category-item:hover::before {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item:hover::before {
   opacity: 0;
   visibility: hidden;
 }
-.banner .banner-grid .banner-item .single-category-item:hover::after {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item:hover::after {
   opacity: 1;
   visibility: visible;
 }
-.banner .banner-grid .banner-item .single-category-item::before, .banner .banner-grid .banner-item .single-category-item::after {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item::before, .banner .banner-grid .banner-top .banner-item-row .single-category-item::after {
   top: 0;
   left: 0;
   width: 100%;
@@ -294,20 +286,22 @@ header .navbar .badge {
   transition: 0.4s;
   background-image: url(../../assets/img/cat-bg.jpg);
   background-repeat: no-repeat;
+  background-size: 100%;
 }
-.banner .banner-grid .banner-item .single-category-item::after {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item::after {
   opacity: 0;
   visibility: hidden;
   transition: 0.4s;
   background-image: url(../../assets/img/cat-hover.jpg);
   background-repeat: no-repeat;
+  background-size: 100%;
 }
-.banner .banner-grid .banner-item .single-category-item .category-title {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .category-title {
   line-height: 1;
   text-align: center;
   margin-bottom: 55px;
 }
-.banner .banner-grid .banner-item .single-category-item .category-title a {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .category-title a {
   font-size: 16px;
   font-weight: 900;
   color: #fff;
@@ -315,17 +309,17 @@ header .navbar .badge {
   transition: 0.4s;
   text-decoration: none;
 }
-.banner .banner-grid .banner-item .single-category-item .category-thumb {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .category-thumb {
   margin-bottom: 20px;
 }
-.banner .banner-grid .banner-item .single-category-item .category-thumb a img {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .category-thumb a img {
   max-width: 100%;
   transition: 0.4s;
 }
-.banner .banner-grid .banner-item .single-category-item .shop-collection {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .shop-collection {
   margin-top: 70px;
 }
-.banner .banner-grid .banner-item .single-category-item .shop-collection .shop-btn {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .shop-collection .shop-btn {
   color: #fff;
   font-size: 20px;
   line-height: 1;
@@ -335,19 +329,33 @@ header .navbar .badge {
   background-color: #3e3e3e;
   border-radius: 50px;
 }
-.banner .banner-grid .banner-item .single-category-item .shop-collection .shop-btn:hover {
+.banner .banner-grid .banner-top .banner-item-row .single-category-item .shop-collection .shop-btn:hover {
   color: #fff;
   background-color: #222222;
 }
-.banner .banner-grid .banner-item .banner-statistics {
+.banner .banner_bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+@media screen and (max-width: 768px) {
+  .banner .banner_bottom {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+}
+.banner .banner_bottom .banner-item {
+  width: 100%;
+}
+.banner .banner_bottom .banner-item .banner-statistics {
   position: relative;
 }
-.banner .banner-grid .banner-item .banner-statistics:hover::before, .banner .banner-grid .banner-item .banner-statistics:hover::after {
+.banner .banner_bottom .banner-item .banner-statistics:hover::before, .banner .banner_bottom .banner-item .banner-statistics:hover::after {
   transform: scale(1);
   opacity: 0;
   transition-duration: 1.3s;
 }
-.banner .banner-grid .banner-item .banner-statistics::before, .banner .banner-grid .banner-item .banner-statistics::after {
+.banner .banner_bottom .banner-item .banner-statistics::before, .banner .banner_bottom .banner-item .banner-statistics::after {
   top: 0;
   left: 0;
   width: 100%;
@@ -359,17 +367,14 @@ header .navbar .badge {
   transform: scale(0);
   transform-origin: top left;
 }
-.banner .banner-grid .banner-item .banner-statistics::after {
+.banner .banner_bottom .banner-item .banner-statistics::after {
   bottom: 0;
   right: 0;
   transform-origin: bottom right;
 }
-.banner .banner-grid .banner-item .banner-statistics a img {
+.banner .banner_bottom .banner-item .banner-statistics a img {
   width: 100%;
   transition: 0.4s;
-}
-.banner .banner-grid .banner-item-position {
-  transform: translateY(-302px);
 }
 
 .bg-img {

@@ -12,3 +12,4 @@ function reduce() {
     document.querySelector(".number").value = 1;
   }
 }
+
